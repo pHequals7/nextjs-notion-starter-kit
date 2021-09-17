@@ -8,7 +8,7 @@ module.exports = {
 
   // basic site info (required)
   name: 'Pranav Hari',
-  domain: 'pranavhari.me',
+  domain: 'pranavhari.com',
   author: 'Pranav Hari',
 
   // open graph metadata (optional)
