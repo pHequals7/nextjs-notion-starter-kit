@@ -17,7 +17,7 @@ import * as types from '@/lib/types'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
-import { useDarkMode } from '@/lib/use-dark-mode'
+import { useDarkMode } from '../lib/use-dark-mode'
 import useCustomDarkMode from '../lib/use-dark-mode'
 
 import { Footer } from './Footer'
@@ -192,16 +192,15 @@ export const NotionPage: React.FC<types.PageProps> = ({
     ),
     [block, recordMap, isBlogPost]
   )
-
-  const darkMode = useCustomDarkMode()
-  const footer = React.useMemo(
+const { isDarkMode, toggleDarkMode } = useDarkMode()
+const footer = React.useMemo(
   () => (
     <Footer 
-      isDarkMode={darkMode.value}
-      toggleDarkMode={darkMode.toggle}
+      isDarkMode={isDarkMode}
+      toggleDarkMode={toggleDarkMode}
     />
   ),
-  [darkMode]
+  [isDarkMode, toggleDarkMode]
 )
 
   if (router.isFallback) {
