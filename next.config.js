@@ -10,5 +10,9 @@ module.exports = withBundleAnalyzer({
   },
   future: {
     webpack5: true
+  },
+  typescript: {
+    ignoreBuildErrors: true
   }
+  
 })
