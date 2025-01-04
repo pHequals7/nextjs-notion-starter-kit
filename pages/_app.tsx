@@ -47,21 +47,20 @@ if (typeof window !== 'undefined') {
 export default function App({ Component, pageProps }) {
   const router = useRouter()
 
-  React.useEffect(() => {
-    if (fathomId) {
-      Fathom.load(fathomId, fathomConfig)
-
-      function onRouteChangeComplete() {
-        Fathom.trackPageview()
-      }
-
-      router.events.on('routeChangeComplete', onRouteChangeComplete)
-
-      return () => {
-        router.events.off('routeChangeComplete', onRouteChangeComplete)
-      }
+React.useEffect(() => {
+  if (fathomId) {
+    Fathom.load(fathomId, fathomConfig)
+    function onRouteChangeComplete() {
+      Fathom.trackPageview()
     }
-  }, [])
+    router.events.on('routeChangeComplete', onRouteChangeComplete)
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete)
+    }
+  }
+}, [router.events, fathomId]) 
+
+//Added router.events to dependency array
 
   return <Component {...pageProps} />
 }
