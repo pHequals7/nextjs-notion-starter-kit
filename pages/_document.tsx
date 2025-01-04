@@ -9,7 +9,6 @@ export default class MyDocument extends Document {
         <Html lang='en'>
           <Head>
             <link rel='shortcut icon' href='/favicon.png' />
-
             <link
               rel='apple-touch-icon'
               sizes='180x180'
@@ -33,15 +32,16 @@ export default class MyDocument extends Document {
               sizes='16x16'
               href='/favicon-16x16.png'
             />
-
             <link rel='manifest' href='/manifest.json' />
           </Head>
-
           <body>
-            <script src='noflash.js' />
-
+            <script
+              async
+              defer
+              src='noflash.js'
+              strategy="beforeInteractive"
+            />
             <Main />
-
             <NextScript />
           </body>
         </Html>
