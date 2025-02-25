@@ -43,6 +43,9 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
 }
 
 export const mapImageUrl = (imageUrl: string) => {
+  if (!imageUrl) {
+    return null
+  }
   if (imageUrl.startsWith('data:')) {
     return imageUrl
   }
