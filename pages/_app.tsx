@@ -58,7 +58,7 @@ React.useEffect(() => {
       router.events.off('routeChangeComplete', onRouteChangeComplete)
     }
   }
-}, [router.events, fathomId]) 
+}, [router.events]) 
 
 //Added router.events to dependency array
 
