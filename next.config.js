@@ -6,7 +6,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   images: {
-    domains: ['pbs.twimg.com','www.notion.so']
+    domains: [
+      'www.notion.so',
+      'notion.so',
+      'images.unsplash.com',
+      'pbs.twimg.com',
+      'file.notion.so',
+      's3.us-west-2.amazonaws.com',
+      's3-us-west-2.amazonaws.com',
+      'f.notion.so'
+    ]
   },
   future: {
     webpack5: true
@@ -14,5 +23,4 @@ module.exports = withBundleAnalyzer({
   typescript: {
     ignoreBuildErrors: true
   }
-  
 })

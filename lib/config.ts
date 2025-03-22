@@ -109,6 +109,9 @@ export const api = {
   searchNotion: `${apiBaseUrl}/search-notion`
 }
 
+export const navigationStyle = 'default'
+export const navigationLinks = null
+export const isSearchEnabled = false
 // ----------------------------------------------------------------------------
 
 export const fathomId = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_ID
