@@ -4,7 +4,20 @@ import * as types from 'lib/types'
 
 // TODO: remove duplication between PageHead and NotionPage Head
 
-export const PageHead: React.FC<types.PageProps> = ({ site }) => {
+interface PageHeadProps extends types.PageProps {
+  title?: string
+  description?: string
+  image?: string
+  url?: string
+}
+
+export const PageHead: React.FC<PageHeadProps> = ({ 
+  site,
+  title,
+  description,
+  image,
+  url
+}) => {
   return (
     <Head>
       <meta charSet='utf-8' />
@@ -14,12 +27,22 @@ export const PageHead: React.FC<types.PageProps> = ({ site }) => {
         content='width=device-width, initial-scale=1, shrink-to-fit=no'
       />
 
-      {site?.description && (
+      {description && (
         <>
-          <meta name='description' content={site.description} />
-          <meta property='og:description' content={site.description} />
+          <meta name='description' content={description} />
+          <meta property='og:description' content={description} />
         </>
       )}
+
+      {title && (
+        <>
+          <title>{title}</title>
+          <meta property='og:title' content={title} />
+        </>
+      )}
+
+      {image && <meta property='og:image' content={image} />}
+      {url && <meta property='og:url' content={url} />}
 
       <meta name='theme-color' content='#EB625A' />
       <meta property='og:type' content='website' />

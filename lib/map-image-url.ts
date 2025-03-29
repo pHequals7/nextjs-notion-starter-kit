@@ -10,9 +10,9 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
     return url
   }
   
-  // Handle signed URLs from Notion (new format)
-  if (url.startsWith('https://file.notion.so') && url.includes('expirationTimestamp')) {
-    return url // Return signed URLs as is
+  // Handle signed URLs from Notion (file.notion.so)
+  if (url.startsWith('https://file.notion.so')) {
+    return url
   }
 
   if (imageCDNHost && url.startsWith(imageCDNHost)) {
@@ -25,11 +25,6 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
 
   // Handle Unsplash images
   if (url.startsWith('https://images.unsplash.com')) {
-    return url
-  }
-
-  // Handle S3 URLs (Notion's storage)
-  if (url.startsWith('https://s3') || url.includes('amazonaws.com')) {
     return url
   }
 
@@ -47,9 +42,7 @@ export const mapNotionImageUrl = (url: string, block: Block) => {
   notionImageUrlV2.searchParams.set('id', block.id)
   notionImageUrlV2.searchParams.set('cache', 'v2')
 
-  url = notionImageUrlV2.toString()
-  
-  return mapImageUrl(url)
+  return mapImageUrl(notionImageUrlV2.toString())
 }
 
 export const mapImageUrl = (imageUrl: string) => {
@@ -61,13 +54,12 @@ export const mapImageUrl = (imageUrl: string) => {
     return imageUrl
   }
 
-  // Ensure Notion's signed URLs pass through unchanged
-  if (imageUrl.includes('expirationTimestamp') && imageUrl.includes('signature')) {
+  // Pass through Notion's signed URLs
+  if (imageUrl.startsWith('https://file.notion.so')) {
     return imageUrl
   }
 
   if (imageCDNHost) {
-    // Our proxy uses Cloudflare's global CDN to cache these image assets
     return `${imageCDNHost}/${encodeURIComponent(imageUrl)}`
   } else {
     return imageUrl

@@ -232,8 +232,7 @@ const footer = React.useMemo(
   const socialImage = mapImageUrl(
     getPageProperty<string>('Social Image', block, recordMap) ||
       (block as PageBlock).format?.page_cover ||
-      config.defaultPageCover,
-    block
+      config.defaultPageCover
   )
 
   const socialDescription =
