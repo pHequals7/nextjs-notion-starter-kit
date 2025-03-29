@@ -14,7 +14,7 @@ import { useSearchParam } from 'react-use'
 
 import * as config from '@/lib/config'
 import * as types from '@/lib/types'
-import { mapImageUrl } from '@/lib/map-image-url'
+import { mapImageUrl, mapNotionImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '../lib/use-dark-mode'
