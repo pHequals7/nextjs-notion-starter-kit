@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import cs from 'classnames'
-import { PageBlock } from 'notion-types'
+import { PageBlock, Block, ExtendedRecordMap } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
 import BodyClassName from 'react-body-classname'
 import { NotionRenderer } from 'react-notion-x'
@@ -173,7 +174,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   }, [site, recordMap, lite])
 
   const keys = Object.keys(recordMap?.block || {})
-  const block = recordMap?.block?.[keys[0]]?.value
+  const block = recordMap?.block?.[keys[0]]?.value as Block
 
   // const isRootPage =
   //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
@@ -199,6 +200,16 @@ const footer = React.useMemo(
   ),
   [isDarkMode, toggleDarkMode]
 )
+
+// Create a memoized wrapper function for mapNotionImageUrl
+  // This wrapper will have access to the current recordMap via closure.
+  const mapImageUrlWithRecordMap = useCallback(
+    (url: string, block: Block) => {
+      // Pass the recordMap (cast to the expected type) to the actual mapping function
+      return mapNotionImageUrl(url, block, recordMap as ExtendedRecordMap);
+    },
+    [recordMap] // Dependency: Only recreate this function if recordMap changes
+  );
 
   if (router.isFallback) {
     return <Loading />
@@ -229,10 +240,12 @@ const footer = React.useMemo(
   const canonicalPageUrl =
     !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId)
 
-  const socialImage = mapImageUrl(
+  const socialImage = mapNotionImageUrl(
     getPageProperty<string>('Social Image', block, recordMap) ||
       (block as PageBlock).format?.page_cover ||
-      config.defaultPageCover
+      config.defaultPageCover,
+      block, // Pass the block
+      recordMap as ExtendedRecordMap // Pass the recordMap
   )
 
   const socialDescription =
