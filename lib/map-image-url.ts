@@ -2,6 +2,8 @@ import { Block } from 'notion-types'
 import { imageCDNHost } from './config'
 
 export const mapNotionImageUrl = (url: string, block: Block) => {
+  console.log(`>>> mapNotionImageUrl called with URL: ${url}, Block ID: ${block.id}`); 
+  
   if (!url) {
     return null
   }
