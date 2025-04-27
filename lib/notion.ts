@@ -42,7 +42,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
       return null
     })
     .filter(Boolean)
-    .map(({ block, url }) => mapNotionImageUrl(url, block))
+    .map(({ block, url }) => mapNotionImageUrl(url, block, recordMap))
     .filter(Boolean)
 
   const urls = Array.from(new Set(imageUrls))
@@ -98,7 +98,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
 
   ;(recordMap as any).tweetAstMap = tweetAstMap
 
-  return recordMap
+  return recordMap as ExtendedRecordMap
 }
 
 export async function search(params: SearchParams): Promise<SearchResults> {
