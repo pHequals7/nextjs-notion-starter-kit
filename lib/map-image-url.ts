@@ -52,21 +52,21 @@ export const mapNotionImageUrl = (
     // Handle Page Icon specifically:
     // Proxy the original icon URL. It might fail (403), but avoids using the cover image URL.
     // react-notion-x might fall back to defaultPageIcon if this fails.
-    console.log(`>>> Handling page icon. Attempting to proxy original icon URL: ${url.substring(0, 100)}...`);
+    console.log(`>>> Handling page icon. Attempting to proxy original icon URL: ${url?.substring(0, 100) ?? 'null/undefined'}...`);
     targetUrl = url; // Use the original icon URL passed in
   } else if (signedUrlForBlock) {
     // Handle other images (like cover). Prefer the signed URL if available for this block.
-    console.log(`>>> Found signed URL for block ${block.id}: ${signedUrlForBlock.substring(0, 100)}...`);
+    console.log(`>>> Found signed URL for block ${block.id}: ${signedUrlForBlock?.substring(0, 100) ?? 'null/undefined'}...`);
     targetUrl = signedUrlForBlock; // Use the signed URL for this block
   } else {
     // No specific signed URL for this block ID found, and it's not the page icon.
     // Proxy the original URL provided (likely S3, might fail).
-    console.log(`>>> No signed URL found for block ${block.id}, using original URL: ${url.substring(0, 100)}...`);
+    console.log(`>>> No signed URL found for block ${block.id}, using original URL: ${url?.substring(0, 100) ?? 'null/undefined'}...`);
     targetUrl = url; // Use the original URL passed in
   }
 
   // Log which URL we are actually going to proxy
-  console.log(`>>> mapNotionImageUrl final target URL for proxy: ${targetUrl.substring(0, 100)}...`); 
+  console.log(`>>> mapNotionImageUrl final target URL for proxy: ${targetUrl?.substring(0, 100) ?? 'null/undefined'}...`); 
 
   // Let mapImageUrl handle the logic of proxying the targetUrl
   const finalUrl = mapImageUrl(targetUrl);
