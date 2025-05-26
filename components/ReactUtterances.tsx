@@ -77,7 +77,7 @@ export class ReactUtterances extends React.Component<
     scriptElement.async = true
     scriptElement.defer = true
     scriptElement.setAttribute('repo', repo)
-    scriptElement.setAttribute('crossorigin', 'annonymous')
+    scriptElement.setAttribute('crossorigin', 'anonymous')
     scriptElement.setAttribute('theme', theme)
     scriptElement.onload = () => this.setState({ pending: false })
 
