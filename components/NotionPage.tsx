@@ -190,24 +190,24 @@ export const NotionPage: React.FC<types.PageProps> = ({
     ),
     [block, recordMap, isBlogPost]
   )
-const { isDarkMode, toggleDarkMode } = useDarkMode()
+  // Initialize dark mode with explicit hydration safety
+  const [isClient, setIsClient] = React.useState(false)
+  const { isDarkMode, toggleDarkMode } = useDarkMode()
   
-  // Prevent hydration mismatch by using a state that matches server-side rendering
-  const [hasMounted, setHasMounted] = React.useState(false)
   React.useEffect(() => {
-    setHasMounted(true)
+    setIsClient(true)
   }, [])
   
-  // Use light mode as default until hydration is complete
-  const effectiveIsDarkMode = hasMounted ? isDarkMode : false
+  // Always use false on server/initial render, only use actual value after hydration
+  const safeIsDarkMode = isClient ? isDarkMode : false
 const footer = React.useMemo(
   () => (
     <Footer 
-      isDarkMode={effectiveIsDarkMode}
+      isDarkMode={safeIsDarkMode}
       toggleDarkMode={toggleDarkMode}
     />
   ),
-  [effectiveIsDarkMode, toggleDarkMode]
+  [safeIsDarkMode, toggleDarkMode]
 )
 
 // Create a memoized wrapper function for mapNotionImageUrl
@@ -273,14 +273,14 @@ const footer = React.useMemo(
       />
 
       {isLiteMode && <BodyClassName className='notion-lite' />}
-      {effectiveIsDarkMode && <BodyClassName className='dark-mode' />}
+      {safeIsDarkMode && <BodyClassName className='dark-mode' />}
 
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
           pageId === site.rootNotionPageId && 'index-page'
         )}
-        darkMode={effectiveIsDarkMode}
+        darkMode={safeIsDarkMode}
         components={components}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}

@@ -4,8 +4,8 @@ export function useDarkMode() {
   const darkMode = useDarkModeImpl(false, { 
     classNameDark: 'dark-mode',
     storageKey: 'darkMode',
-    // Prevent hydration mismatch by using initialValue consistently
-    initialValue: undefined
+    // Ensure consistent initial value for SSR
+    initialValue: false
   })
 
   return {
