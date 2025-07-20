@@ -17,9 +17,6 @@ module.exports = withBundleAnalyzer({
       'f.notion.so'
     ]
   },
-  future: {
-    webpack5: true
-  },
   typescript: {
     ignoreBuildErrors: true
   }
