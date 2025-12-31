@@ -1,0 +1,76 @@
+{
+  "blocks": 101,
+  "mainPage": null,
+  "images": [
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e65cce1b-ae6b-46cd-9871-e8d489a802b2/landscape.jpg",
+      "type": "cover",
+      "blockId": "fc92efc5-1202-4561-b080-d5cff9a77dbe"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1b5fc6a9-2795-489c-8504-30a58ef59bd4/icon.jpg",
+      "type": "icon",
+      "blockId": "fc92efc5-1202-4561-b080-d5cff9a77dbe"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb",
+      "type": "cover",
+      "blockId": "07107ae6-dcba-498e-ba2f-fa91d067aa84"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/060b996b-171d-48f6-98e8-1d0de24cd704/youtube-uni.jpg",
+      "type": "cover",
+      "blockId": "ad1fe712-5724-4a3a-b38f-ed15e5fc3d7f"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4722f3b9-d23c-4711-ba2f-7a53ac207121/Slide_4_3_-_1twillio.png",
+      "type": "cover",
+      "blockId": "c1640911-a611-4c92-a9fe-a9ba5d55f45c"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8295ef82-b5ff-4de8-897a-7f3cda0c3b74/remote_work_video.png",
+      "type": "cover",
+      "blockId": "c190e4f4-4220-4d61-b71a-c724c0a6a860"
+    },
+    {
+      "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/53b92ce5-f4af-4f58-87cf-32c6a095c88b/5b69ce2d-453d-4fd4-b20b-e16ef8d69e8a/comic_orchestra.jpg",
+      "type": "image",
+      "blockId": "8470d505-2dcf-4533-85f6-b62b08a4dedf"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/384c5dee-6a73-465d-9502-2d8706f298a3/me-about-to-fail-my-final-exam-random-indian-dude_(2).jpg",
+      "type": "image",
+      "blockId": "4dc61583-cf67-4c41-a561-396632b8b773"
+    },
+    {
+      "url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/53b92ce5-f4af-4f58-87cf-32c6a095c88b/bbdbd415-20df-42ff-9232-37f07a7592bb/GenAI_in_India_v2.png",
+      "type": "image",
+      "blockId": "b3b1516c-2f87-4129-af39-d09def518eeb"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e98d86b5-ee67-44f4-9fa5-a29fe03a85d2/Slide_4_3_-_1twillio.png",
+      "type": "image",
+      "blockId": "20b74092-948f-42cd-9a99-35c2874c3a84"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a6f40333-5828-4e1f-a0c7-b6bcb24c78d5/phTweet.jpg",
+      "type": "image",
+      "blockId": "6b593802-0d3d-4104-9906-e798f97b28f7"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aadc2b77-e6c7-46c4-a26e-baa647a2aa26/twillio.jpg",
+      "type": "image",
+      "blockId": "91702a91-331e-495e-aaf1-3c615115fd92"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5011c6bb-7b5b-46b4-b751-1c4a0fb08933/Untitled.png",
+      "type": "image",
+      "blockId": "eb51fbca-a6dc-40b0-85b0-21299f8d7fbb"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/secure.notion-static.com/801193e3-856d-492e-8f84-de24c4d2154b/async_video2.jpg",
+      "type": "image",
+      "blockId": "c7d9d9a1-85a4-4bf9-8575-3ef7276c7033"
+    }
+  ]
+}
